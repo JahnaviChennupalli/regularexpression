@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.head{
+			background-color: rosybrown;
+			text-align: center;
+			font-size: 60px;
+
+		}
+		.bgc{
+			text-align: center;
+			padding: 10px;
+
+		}
+		.p1{
+			padding:15px;
+			border-radius: 2px;
+		}
+		.big{
+			background-color: pink;
+			background-size:cover;
+			height: 100vh;
+		}
+		.btn{
+			background-color: red;
+			color:black;
+			padding: 8px;
+			width: 100px;
+		}
+		.btn:hover{
+			background-color: blue;
+			color: black;
+		}
+		
+	</style>
+	<script>
+		function validate(){
+			var firstname=document.getElementById("firstname").value;
+			var email=document.getElementById("email").value
+			var password=document.getElementById("password").value
+			var mobile=document.getElementById("mobile").value
+			var male=document.getElementById("male").checked
+			var female=document.getElementById("female").checked
+		
+			var firstNameCheck=/^[a-zA-Z]+$/
+			var emailCheck=/^[a-zA-Z0-9.#]+@[a-z]+\.[a-z]{2,3}$/
+			var passwordCheck=/^[a-zA-Z0-9.#]+@[a-z]+\.[a-z]{2,3}$/
+			var mobileCheck=/^[6-9]\d{9}$/
+
+			if(firstname==""||firstname.length<3){
+				alert("please enter your name")
+				return false;
+			}
+			if (!firstname.match(firstNameCheck)){
+				alert("Name must carry only characters")
+				return false
+			}
+			if (email==""){
+				alert("Email id is mandatory")
+				return false
+			
+			}
+			if(!email.match(emailCheck)){
+				alert("check email");
+				return false
+			}
+			if (password==""){
+				alert("Enter your password")
+				return false
+			}
+			if (!password.match(passwordCheck)){
+				alert("password contains uppercase,lowercase,number,special character")
+				return false
+			}
+
+			if(mobile==""){
+				alert("Enter mobile Number");
+				return false
+			}
+			if(!mobile.match(mobileCheck)){
+				alert("provide proper mobile number");
+				return false
+			}
+			if (male.checked==false && female.checked==false){
+				alert("select your gender please");
+				return false
+			}
+			return true
+		}
+	</script>
+</head>
+<body>
+	<section class=big>
+		<h1 class="head">Registration Page</h1>
+		<form class="bgc"onsubmit="return validate()" action=login.html>
+			<p><input class="p1" id="firstname" placeholder="Enter your name"/></p>
+			<p><input class="p1" id="email" placeholder="Enter your Email ID"/></p>
+			<p><input class="p1" type="password" id="password" placeholder="Enter your password"/</p>
+			<p><input class="p1" id="mobile" placeholder="Enter your Number"/</p>
+			<p>			
+			<input type="radio" name="gender" id="female"/>Female
+			<input type="radio" name="gender" id="male"/>Male
+			</p>
+			<button class="btn">Submit</button>
+		</form>
+	</section
+</body>
+</html>
